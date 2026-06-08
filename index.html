@@ -4,12 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu blog tech</title>
+    <title>Blog da Fernanda</title>
+
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/2001/2001643.png" type="image/x-icon">
 
     <style>
         body {
             font-family: Georgia, serif;
+            background-color: #f5f7fa;
             color: #183C63;
+            margin: 0;
         }
 
         header {
@@ -27,11 +31,52 @@
             padding: 16px;
         }
 
+        article {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 20px;
+            background-color: white;
+            padding: 16px;
+            border-radius: 8px;
+        }
+
         img {
             width: 80px;
             height: 80px;
-            display: block;
-            margin-bottom: 16px;
+        }
+
+        .artigo-autor {
+            font-weight: bold;
+        }
+
+        button {
+            padding: 6px 12px;
+            margin-right: 8px;
+            cursor: pointer;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            border: none;
+            border-radius: 50%;
+            padding: 12px;
+            font-size: 20px;
+        }
+
+        .dark-mode {
+            background-color: #121212;
+            color: white;
+        }
+
+        .dark-mode article {
+            background-color: #1e1e1e;
+            color: white;
+        }
+
+        .dark-mode header {
+            background-color: #0f2740;
         }
     </style>
 </head>
@@ -39,27 +84,99 @@
 <body>
 
     <header>
-        <h1>Meu blog tech</h1>
-        <p>Vou compartilhar conhecimentos sobre tecnologia e programação</p>
+        <h1>Blog da Fernanda</h1>
+        <p>Compartilhando aprendizados, tecnologia e curiosidades do mundo digital.</p>
     </header>
 
     <main>
 
-        <!-- Coloque a imagem na mesma pasta do index.html -->
-        <img
-            src="imagem-blog.png"
-            alt="Logotipo conceitual de tecnologia e educação: um livro aberto de onde emerge um cérebro digital brilhante, cercado por ícones de Wi-Fi, circuitos e lâmpada de ideia. Cores em tons de azul e branco.">
+        <article>
+            <img src="imagem-blog.png"
+                alt="Logotipo conceitual de tecnologia e educação com elementos digitais.">
 
-        <h2>Meu primeiro post</h2>
+            <div>
+                <h2>Minha jornada na tecnologia</h2>
+                <p class="artigo-autor">Por: Fernanda Grigolin</p>
 
-        <p>Por: Fernanda</p>
+                <p>
+                    Neste primeiro post vou compartilhar um pouco da minha experiência
+                    aprendendo programação e descobrindo novas áreas da tecnologia.
+                </p>
 
-        <p>
-            Boas-vindas ao meu novo blog! Aqui vou compartilhar dicas de
-            programação e curiosidades da área de tecnologia.
-        </p>
+                <button>❤️ <span>0</span></button>
+                <button>👍 <span>0</span></button>
+            </div>
+        </article>
+
+        <article>
+            <img src="imagem-blog.png"
+                alt="Logotipo conceitual de tecnologia e educação com elementos digitais.">
+
+            <div>
+                <h2>Dicas para quem está começando</h2>
+                <p class="artigo-autor">Por: Fernanda Grigolin</p>
+
+                <p>
+                    Aprender programação pode parecer difícil no começo, mas com
+                    prática e dedicação tudo fica mais fácil.
+                </p>
+
+                <button>❤️ <span>0</span></button>
+                <button>👍 <span>0</span></button>
+            </div>
+        </article>
+
+        <article>
+            <img src="imagem-blog.png"
+                alt="Logotipo conceitual de tecnologia e educação com elementos digitais.">
+
+            <div>
+                <h2>Ferramentas úteis para estudantes</h2>
+                <p class="artigo-autor">Por: Fernanda Grigolin</p>
+
+                <p>
+                    Existem diversas ferramentas gratuitas que ajudam na organização
+                    dos estudos e no aprendizado de tecnologia.
+                </p>
+
+                <button>❤️ <span>0</span></button>
+                <button>👍 <span>0</span></button>
+            </div>
+        </article>
 
     </main>
+
+    <button class="theme-toggle">🌓</button>
+
+    <script>
+        const botoes = document.querySelectorAll("button:not(.theme-toggle)");
+
+        botoes.forEach(function (botao) {
+
+            let curtiu = false;
+
+            botao.addEventListener("click", botaoClicado);
+
+            function botaoClicado() {
+
+                let texto = botao.querySelector("span");
+
+                if (curtiu === false) {
+                    texto.textContent++;
+                    curtiu = true;
+                } else {
+                    texto.textContent--;
+                    curtiu = false;
+                }
+            }
+        });
+
+        const botaoTema = document.querySelector(".theme-toggle");
+
+        botaoTema.addEventListener("click", function () {
+            document.body.classList.toggle("dark-mode");
+        });
+    </script>
 
 </body>
 
