@@ -1,0 +1,86 @@
+```html
+<main>
+
+    <article>
+        <img src="imagem-blog.png"
+            alt="Logotipo conceitual de tecnologia e educação com elementos digitais.">
+
+        <div>
+            <h2>Minha jornada na tecnologia</h2>
+            <p class="artigo-autor">Por: Fernanda Grigolin</p>
+            <p>
+                Neste primeiro post vou compartilhar um pouco da minha experiência
+                aprendendo programação e descobrindo novas áreas da tecnologia.
+            </p>
+
+            <button>❤️ <span>0</span></button>
+            <button>👍 <span>0</span></button>
+        </div>
+    </article>
+
+    <article>
+        <img src="imagem-blog.png"
+            alt="Logotipo conceitual de tecnologia e educação com elementos digitais.">
+
+        <div>
+            <h2>Dicas para quem está começando</h2>
+            <p class="artigo-autor">Por: Fernanda Grigolin</p>
+            <p>
+                Aprender programação pode parecer difícil no começo, mas com
+                prática e dedicação tudo fica mais fácil.
+            </p>
+
+            <button>❤️ <span>0</span></button>
+            <button>👍 <span>0</span></button>
+        </div>
+    </article>
+
+</main>
+```
+
+```css
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 16px;
+}
+
+article {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+img {
+    width: 80px;
+    height: 80px;
+}
+
+.artigo-autor {
+    font-weight: bold;
+}
+```
+
+```javascript
+const botoes = document.querySelectorAll("button");
+
+botoes.forEach(function (botao) {
+
+    let curtiu = false;
+
+    botao.addEventListener("click", botaoClicado);
+
+    function botaoClicado() {
+
+        let texto = botao.querySelector("span");
+
+        if (curtiu === false) {
+            texto.textContent++;
+            curtiu = true;
+        } else {
+            texto.textContent--;
+            curtiu = false;
+        }
+    }
+});
+```
